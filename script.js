@@ -7,7 +7,7 @@
    y cuente el evento una sola vez, con señal más fuerte.
    ═══════════════════════════════════════════════════════════════ */
 
-var PIXEL_ID = '1603617100707157';
+var PIXEL_ID = '1541165377405964';
 
 /* ── Leer cookie por nombre ── */
 function getCookie(name) {
