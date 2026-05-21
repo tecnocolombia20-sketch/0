@@ -1,5 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
    META PIXEL + CONVERSIONS API (CAPI) — TV Stick Colombia
+   Configurado para: VENTAS → Sitio web → Purchase
+   
    Cada evento se envía dos veces:
      1. Browser Pixel  → fbq(...)       (lado del cliente)
      2. Server CAPI    → /api/capi      (lado del servidor)
@@ -50,70 +52,15 @@ function fireEvent(eventName, eventParams, customData) {
   sendCAPI(eventName, eventID, customData);
 }
 
-/* ── Botón WhatsApp — 3 eventos estándar con el mismo ts base ── */
+/* ── Botón WhatsApp — PURCHASE (evento principal de Ventas) ──
+   Al hacer clic en WhatsApp se dispara Purchase = conversión de venta.
+   Esto permite usar el objetivo Ventas → Sitio web → Purchase en Meta Ads.
+   También se envía AddToCart como evento secundario para retargeting. */
 function trackWA() {
   var ts = Date.now();
 
-  // InitiateCheckout — intención de compra fuerte
-  var idIC = 'InitiateCheckout_' + ts;
-  if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'InitiateCheckout', {
-      content_ids:  ['tvstick-co-001'],
-      content_type: 'product',
-      num_items:    1,
-      value:        98000,
-      currency:     'COP',
-    }, { eventID: idIC });
-  }
-  sendCAPI('InitiateCheckout', idIC, {
-    content_ids:  ['tvstick-co-001'],
-    content_type: 'product',
-    num_items:    1,
-    value:        98000,
-    currency:     'COP',
-  });
-
-  // Contact — canal WhatsApp
-  var idCt = 'Contact_' + ts;
-  if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'Contact', {}, { eventID: idCt });
-  }
-  sendCAPI('Contact', idCt);
-
-  // Lead — conversión principal
-  var idLd = 'Lead_' + ts;
-  if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'Lead', {
-      content_name: 'TV Stick Colombia',
-      value:        98000,
-      currency:     'COP',
-    }, { eventID: idLd });
-  }
-  sendCAPI('Lead', idLd, {
-    content_name: 'TV Stick Colombia',
-    value:        98000,
-    currency:     'COP',
-  });
-}
-
-/* ── EVENTO PURCHASE — detecta ?compra=ok en la URL ──────────────
-   Flujo:
-     1. Cliente confirma pedido por WhatsApp
-     2. Tú le envías el link: https://tudominio.com/?compra=ok
-     3. Cliente abre el link → se dispara Purchase (Pixel + CAPI)
-     4. El parámetro se borra de la URL y aparece un banner de confirmación
-   ────────────────────────────────────────────────────────────── */
-(function () {
-  var params = new URLSearchParams(window.location.search);
-  if (params.get('compra') !== 'ok') return;
-
-  // Evitar doble disparo si el usuario recarga la página
-  if (sessionStorage.getItem('purchase_fired')) return;
-  sessionStorage.setItem('purchase_fired', '1');
-
-  var ts  = Date.now();
-  var eid = 'Purchase_' + ts;
-
+  // Purchase — evento principal de conversión para campaña de Ventas
+  var idP = 'Purchase_' + ts;
   var purchaseData = {
     content_ids:  ['tvstick-co-001'],
     content_type: 'product',
@@ -122,38 +69,25 @@ function trackWA() {
     currency:     'COP',
     num_items:    1,
   };
-
-  // 1. Browser Pixel
   if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'Purchase', purchaseData, { eventID: eid });
+    fbq('trackSingle', PIXEL_ID, 'Purchase', purchaseData, { eventID: idP });
   }
+  sendCAPI('Purchase', idP, purchaseData);
 
-  // 2. Server CAPI
-  sendCAPI('Purchase', eid, purchaseData);
-
-  // Limpiar ?compra=ok de la URL (no queremos que se vea ni se repita)
-  history.replaceState(null, '', window.location.pathname + window.location.hash);
-
-  // Mostrar banner de confirmación
-  var banner = document.createElement('div');
-  banner.className = 'purchase-banner';
-  banner.innerHTML =
-    '<span class="purchase-banner-icon">🎉</span>' +
-    '<div class="purchase-banner-text">' +
-      '<strong>¡Pedido confirmado!</strong>' +
-      '<span>Gracias por tu compra. Te contactaremos pronto por WhatsApp.</span>' +
-    '</div>' +
-    '<button class="purchase-banner-close" onclick="this.parentElement.remove()">✕</button>';
-  document.body.prepend(banner);
-
-  // Auto-cierra después de 8 segundos
-  setTimeout(function () {
-    if (banner.parentElement) {
-      banner.style.animation = 'bannerSlideOut 0.4s ease forwards';
-      setTimeout(function () { banner.remove(); }, 400);
-    }
-  }, 8000);
-})();
+  // AddToCart — evento secundario para retargeting
+  var idATC = 'AddToCart_' + ts;
+  var addToCartData = {
+    content_ids:  ['tvstick-co-001'],
+    content_type: 'product',
+    content_name: 'TV Stick Colombia',
+    value:        98000,
+    currency:     'COP',
+  };
+  if (typeof fbq !== 'undefined') {
+    fbq('trackSingle', PIXEL_ID, 'AddToCart', addToCartData, { eventID: idATC });
+  }
+  sendCAPI('AddToCart', idATC, addToCartData);
+}
 
 /* ── AÑO EN FOOTER ── */
 document.getElementById('year').textContent = new Date().getFullYear();
