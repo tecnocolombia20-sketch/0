@@ -2,11 +2,10 @@
    META PIXEL + CONVERSIONS API (CAPI) — TV Stick Colombia
    Configurado para: VENTAS → Sitio web → Purchase
    
-   Cada evento se envía dos veces:
-     1. Browser Pixel  → fbq(...)       (lado del cliente)
-     2. Server CAPI    → /api/capi      (lado del servidor)
-   El mismo eventID en ambos permite que Meta deduplique
-   y cuente el evento una sola vez, con señal más fuerte.
+   Eventos:
+     PageView    → Solo navegador (estándar de Meta)
+     ViewContent → Pixel + CAPI (sin value, solo informativo)
+     Purchase    → Pixel + CAPI (1 vez por sesión, con value)
    ═══════════════════════════════════════════════════════════════ */
 
 var PIXEL_ID = '1541165377405964';
@@ -15,6 +14,11 @@ var PIXEL_ID = '1541165377405964';
 function getCookie(name) {
   var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
   return m ? m[2] : '';
+}
+
+/* ── Generar ID único para deduplicación Pixel ↔ CAPI ── */
+function genEventID(name) {
+  return name + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
 }
 
 /* ── Enviar evento al servidor (CAPI) ──
@@ -35,13 +39,13 @@ function sendCAPI(eventName, eventID, customData) {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(payload),
-    }).catch(function () {});   // silencioso si falla
+    }).catch(function () {});
   } catch (e) {}
 }
 
-/* ── Disparar un evento estándar (Pixel + CAPI en paralelo) ── */
-function fireEvent(eventName, eventParams, customData) {
-  var eventID = eventName + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+/* ── Disparar evento estándar (Pixel + CAPI en paralelo) ── */
+function trackEvent(eventName, eventParams, customData) {
+  var eventID = genEventID(eventName);
 
   // 1. Browser Pixel
   if (typeof fbq !== 'undefined') {
@@ -53,46 +57,34 @@ function fireEvent(eventName, eventParams, customData) {
 }
 
 /* ── ViewContent — se dispara 1 vez al cargar la página ──
-   Se envía por Pixel + CAPI para señal más fuerte.
-   SIN value — solo Purchase tiene valor monetario. */
-(function () {
-  var eid = 'ViewContent_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-  var viewData = {
-    content_ids:      ['tvstick-co-001'],
-    content_type:     'product',
-    content_name:     'TV Stick Colombia',
-    content_category: 'Electrónica / Smart TV',
-    currency:         'COP',
-  };
-  if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'ViewContent', viewData, { eventID: eid });
-  }
-  sendCAPI('ViewContent', eid, viewData);
-})();
+   SIN value — solo Purchase tiene valor monetario.
+   Se envía por Pixel + CAPI para señal más fuerte. */
+trackEvent('ViewContent', {
+  content_ids:      ['tvstick-co-001'],
+  content_type:     'product',
+  content_name:     'TV Stick Colombia',
+  content_category: 'Electrónica / Smart TV',
+  currency:         'COP',
+});
 
 /* ── Botón WhatsApp — PURCHASE (1 vez por sesión) ──
-   Protección contra múltiples clics en diferentes botones.
-   Solo se dispara Purchase una vez por visita a la landing. */
+   Al hacer clic en WhatsApp se dispara Purchase = conversión de venta.
+   Protección contra múltiples clics: solo 1 Purchase por sesión.
+   Nueva sesión = nueva visita a la landing. */
 var _purchaseFired = false;
 
 function trackWA() {
   if (_purchaseFired) return;
   _purchaseFired = true;
 
-  var ts = Date.now();
-  var idP = 'Purchase_' + ts;
-  var purchaseData = {
+  trackEvent('Purchase', {
     content_ids:  ['tvstick-co-001'],
     content_type: 'product',
     content_name: 'TV Stick Colombia',
     value:        98000,
     currency:     'COP',
     num_items:    1,
-  };
-  if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'Purchase', purchaseData, { eventID: idP });
-  }
-  sendCAPI('Purchase', idP, purchaseData);
+  });
 }
 
 /* ── AÑO EN FOOTER ── */
