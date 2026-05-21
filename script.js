@@ -54,8 +54,7 @@ function fireEvent(eventName, eventParams, customData) {
 
 /* ── Botón WhatsApp — PURCHASE (evento principal de Ventas) ──
    Al hacer clic en WhatsApp se dispara Purchase = conversión de venta.
-   Esto permite usar el objetivo Ventas → Sitio web → Purchase en Meta Ads.
-   También se envía AddToCart como evento secundario para retargeting. */
+   Esto permite usar el objetivo Ventas → Sitio web → Purchase en Meta Ads. */
 function trackWA() {
   var ts = Date.now();
 
@@ -73,20 +72,6 @@ function trackWA() {
     fbq('trackSingle', PIXEL_ID, 'Purchase', purchaseData, { eventID: idP });
   }
   sendCAPI('Purchase', idP, purchaseData);
-
-  // AddToCart — evento secundario para retargeting
-  var idATC = 'AddToCart_' + ts;
-  var addToCartData = {
-    content_ids:  ['tvstick-co-001'],
-    content_type: 'product',
-    content_name: 'TV Stick Colombia',
-    value:        98000,
-    currency:     'COP',
-  };
-  if (typeof fbq !== 'undefined') {
-    fbq('trackSingle', PIXEL_ID, 'AddToCart', addToCartData, { eventID: idATC });
-  }
-  sendCAPI('AddToCart', idATC, addToCartData);
 }
 
 /* ── AÑO EN FOOTER ── */
@@ -156,4 +141,3 @@ window.addEventListener('scroll', function () {
     mouseStartX = null;
   });
 })();
-
