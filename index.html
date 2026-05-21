@@ -14,15 +14,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
 
-  <!-- Meta Pixel -->
+    <!-- Meta Pixel -->
   <script>
-    var PIXEL_ID = '1541165377405964';
-
-    // Genera un ID único por sesión para deduplicación (listo para Conversions API)
-    function genEventID(name) {
-      return name + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
-    }
-
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -32,28 +25,16 @@
       s.parentNode.insertBefore(t,s)
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    // 1. Inicializar el Pixel
-    fbq('init', PIXEL_ID);
-
-    // 2. PageView — se dispara una sola vez al cargar la página
-    fbq('trackSingle', PIXEL_ID, 'PageView', {}, { eventID: genEventID('PageView') });
-
-    // 3. ViewContent — producto visto con todos los parámetros requeridos
-    //    content_ids y content_type son obligatorios para retargeting y catálogo
-    fbq('trackSingle', PIXEL_ID, 'ViewContent', {
-      content_ids:      ['tvstick-co-001'],
-      content_type:     'product',
-      content_name:     'TV Stick Colombia',
-      content_category: 'Electrónica / Smart TV',
-      value:            98000,
-      currency:         'COP'
-    }, { eventID: genEventID('ViewContent') });
+    // Inicializar Pixel + PageView
+    fbq('init', '1541165377405964');
+    fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1541165377405964&ev=PageView&noscript=1" />
   </noscript>
   <!-- Fin Meta Pixel -->
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
