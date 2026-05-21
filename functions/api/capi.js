@@ -16,7 +16,7 @@
 //    en la pestaña "Actividad de prueba" de Meta Events Manager.
 // ─────────────────────────────────────────────────────────────────
 
-const PIXEL_ID  = '1603617100707157';
+const PIXEL_ID  = '1541165377405964';
 const GRAPH_URL = 'https://graph.facebook.com/v19.0/' + PIXEL_ID + '/events';
 
 const CORS = {
