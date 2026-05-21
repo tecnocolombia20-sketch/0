@@ -52,13 +52,34 @@ function fireEvent(eventName, eventParams, customData) {
   sendCAPI(eventName, eventID, customData);
 }
 
-/* ── Botón WhatsApp — PURCHASE (evento principal de Ventas) ──
-   Al hacer clic en WhatsApp se dispara Purchase = conversión de venta.
-   Esto permite usar el objetivo Ventas → Sitio web → Purchase en Meta Ads. */
-function trackWA() {
-  var ts = Date.now();
+/* ── ViewContent — se dispara 1 vez al cargar la página ──
+   Se envía por Pixel + CAPI para señal más fuerte.
+   SIN value — solo Purchase tiene valor monetario. */
+(function () {
+  var eid = 'ViewContent_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+  var viewData = {
+    content_ids:      ['tvstick-co-001'],
+    content_type:     'product',
+    content_name:     'TV Stick Colombia',
+    content_category: 'Electrónica / Smart TV',
+    currency:         'COP',
+  };
+  if (typeof fbq !== 'undefined') {
+    fbq('trackSingle', PIXEL_ID, 'ViewContent', viewData, { eventID: eid });
+  }
+  sendCAPI('ViewContent', eid, viewData);
+})();
 
-  // Purchase — evento principal de conversión para campaña de Ventas
+/* ── Botón WhatsApp — PURCHASE (1 vez por sesión) ──
+   Protección contra múltiples clics en diferentes botones.
+   Solo se dispara Purchase una vez por visita a la landing. */
+var _purchaseFired = false;
+
+function trackWA() {
+  if (_purchaseFired) return;
+  _purchaseFired = true;
+
+  var ts = Date.now();
   var idP = 'Purchase_' + ts;
   var purchaseData = {
     content_ids:  ['tvstick-co-001'],
