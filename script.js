@@ -51,7 +51,7 @@ function trackEvent(eventName, eventParams, customData) {
     fbq('trackSingle', PIXEL_ID, eventName, eventParams || {}, { eventID: eventID });
   }
 
-  sendCAPI(eventName, eventID, customData);
+    sendCAPI(eventName, eventID, customData || eventParams);
 }
 
 /* ── Construir link de WhatsApp con UTM tracking ── */
