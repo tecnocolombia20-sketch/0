@@ -62,9 +62,11 @@ function buildWhatsAppURL() {
   var ad = params.get('utm_content') || params.get('utm_ad') || 'sin-anuncio';
 
 
-  var msg = WA_BASE_MSG;
+    var msg = WA_BASE_MSG;
   msg += ' | Fuente: ' + source;
   msg += ' | Campaña: ' + campaign;
+  msg += ' | Anuncio: ' + ad;
+
 
   return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
 }
