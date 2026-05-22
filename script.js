@@ -57,9 +57,10 @@ function trackEvent(eventName, eventParams, customData) {
 /* ── Construir link de WhatsApp con UTM tracking ── */
 function buildWhatsAppURL() {
   var params = new URLSearchParams(window.location.search);
-  var source   = params.get('utm_source')   || params.get('fbclid') ? 'facebook' : 'directo';
+  var source = params.get('utm_source') || (params.get('fbclid') ? 'facebook' : 'directo');
   var campaign = params.get('utm_campaign') || 'sin-campana';
-  var ad       = params.get('utm_ad')       || 'sin-anuncio';
+  var ad = params.get('utm_content') || params.get('utm_ad') || 'sin-anuncio';
+
 
   var msg = WA_BASE_MSG;
   msg += ' | Fuente: ' + source;
