@@ -9,6 +9,8 @@
    ═══════════════════════════════════════════════════════════════ */
 
 var PIXEL_ID = '1541165377405964';
+var WA_NUMBER = '573125057113';
+var WA_BASE_MSG = 'Hola quiero comprar el TV Stick 📺';
 
 /* ── Leer cookie por nombre ── */
 function getCookie(name) {
@@ -21,9 +23,7 @@ function genEventID(name) {
   return name + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
 }
 
-/* ── Enviar evento al servidor (CAPI) ──
-   Falla silenciosamente — el Pixel del navegador es siempre el primario.
-   Si hay bloqueadores de ads, solo el CAPI llega a Meta.          */
+/* ── Enviar evento al servidor (CAPI) ── */
 function sendCAPI(eventName, eventID, customData) {
   try {
     var payload = {
@@ -47,18 +47,37 @@ function sendCAPI(eventName, eventID, customData) {
 function trackEvent(eventName, eventParams, customData) {
   var eventID = genEventID(eventName);
 
-  // 1. Browser Pixel
   if (typeof fbq !== 'undefined') {
     fbq('trackSingle', PIXEL_ID, eventName, eventParams || {}, { eventID: eventID });
   }
 
-  // 2. Server CAPI
   sendCAPI(eventName, eventID, customData);
 }
 
-/* ── ViewContent — se dispara 1 vez al cargar la página ──
-   SIN value — solo Purchase tiene valor monetario.
-   Se envía por Pixel + CAPI para señal más fuerte. */
+/* ── Construir link de WhatsApp con UTM tracking ── */
+function buildWhatsAppURL() {
+  var params = new URLSearchParams(window.location.search);
+  var source   = params.get('utm_source')   || params.get('fbclid') ? 'facebook' : 'directo';
+  var campaign = params.get('utm_campaign') || 'sin-campana';
+  var ad       = params.get('utm_ad')       || 'sin-anuncio';
+
+  var msg = WA_BASE_MSG;
+  msg += ' | Fuente: ' + source;
+  msg += ' | Campaña: ' + campaign;
+
+  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+}
+
+/* ── Inicializar todos los links de WhatsApp ── */
+(function () {
+  var waURL = buildWhatsAppURL();
+  var links = document.querySelectorAll('a[href*="wa.me"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].href = waURL;
+  }
+})();
+
+/* ── ViewContent — 1 vez al cargar, Pixel + CAPI, SIN value ── */
 trackEvent('ViewContent', {
   content_ids:      ['tvstick-co-001'],
   content_type:     'product',
@@ -67,10 +86,7 @@ trackEvent('ViewContent', {
   currency:         'COP',
 });
 
-/* ── Botón WhatsApp — PURCHASE (1 vez por sesión) ──
-   Al hacer clic en WhatsApp se dispara Purchase = conversión de venta.
-   Protección contra múltiples clics: solo 1 Purchase por sesión.
-   Nueva sesión = nueva visita a la landing. */
+/* ── Botón WhatsApp — PURCHASE (1 vez por sesión) ── */
 var _purchaseFired = false;
 
 function trackWA() {
@@ -100,18 +116,28 @@ window.addEventListener('scroll', function () {
   }
 }, { passive: true });
 
-/* ── COUNTDOWN TIMER ── */
+/* ── COUNTDOWN TIMER (consistente por cookie) ── */
 (function () {
-  var h = 2, m = 47, s = 33;
+  var COOKIE_NAME = 'tvstick_countdown_end';
+  var HOURS = 2;
   var el = document.getElementById('countdown');
+
+  var endTime = getCookie(COOKIE_NAME);
+  if (!endTime) {
+    endTime = Date.now() + HOURS * 60 * 60 * 1000;
+    document.cookie = COOKIE_NAME + '=' + endTime + ';path=/;max-age=' + (HOURS * 3600 + 300);
+  }
+  endTime = parseInt(endTime, 10);
+
   function fmt(n) { return String(n).padStart(2, '0'); }
   function tick() {
-    s--;
-    if (s < 0) { s = 59; m--; }
-    if (m < 0) { m = 59; h--; }
-    if (h < 0) { h = 0; m = 0; s = 0; }
+    var diff = Math.max(0, endTime - Date.now());
+    var h = Math.floor(diff / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
     el.textContent = fmt(h) + ':' + fmt(m) + ':' + fmt(s);
   }
+  tick();
   setInterval(tick, 1000);
 })();
 
