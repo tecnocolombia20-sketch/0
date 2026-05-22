@@ -17,7 +17,7 @@
 // ─────────────────────────────────────────────────────────────────
 
 const PIXEL_ID  = '1541165377405964';
-const GRAPH_URL = 'https://graph.facebook.com/v19.0/' + PIXEL_ID + '/events';
+const GRAPH_URL = 'https://graph.facebook.com/v22.0/' + PIXEL_ID + '/events';
 
 const CORS = {
   'Access-Control-Allow-Origin':  '*',
