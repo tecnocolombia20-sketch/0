@@ -1,16 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════
    META PIXEL + CONVERSIONS API (CAPI) — TV Stick Colombia
-   Configurado para: VENTAS → Sitio web → Purchase
+   Configurado para: VENTAS → Sitio web → Lead
    
    Eventos:
      PageView    → Solo navegador (estándar de Meta)
      ViewContent → Pixel + CAPI (sin value, solo informativo)
-     Purchase    → Pixel + CAPI (1 vez por sesión, con value)
+     Lead        → Pixel + CAPI (click en WhatsApp)
    ═══════════════════════════════════════════════════════════════ */
 
 var PIXEL_ID = '1541165377405964';
 var WA_NUMBER = '573125057113';
-var WA_BASE_MSG = 'Hola quiero comprar el TV Stick 📺';
+var WA_BASE_MSG = 'Hola me interesa el TV Stick 📺';
 
 /* ── Leer cookie por nombre ── */
 function getCookie(name) {
@@ -89,20 +89,17 @@ trackEvent('ViewContent', {
   currency:         'COP',
 });
 
-/* ── Botón WhatsApp — PURCHASE (1 vez por sesión) ── */
-var _purchaseFired = false;
+/* ── Botón WhatsApp — LEAD (1 vez por sesión) ── */
+var _leadFired = false;
 
 function trackWA() {
-  if (_purchaseFired) return;
-  _purchaseFired = true;
+  if (_leadFired) return;
+  _leadFired = true;
 
-  trackEvent('Purchase', {
-    content_ids:  ['tvstick-co-001'],
-    content_type: 'product',
+  trackEvent('Lead', {
     content_name: 'TV Stick Colombia',
     value:        98000,
     currency:     'COP',
-    num_items:    1,
   });
 }
 
