@@ -54,21 +54,9 @@ function trackEvent(eventName, eventParams, customData) {
     sendCAPI(eventName, eventID, customData || eventParams);
 }
 
-/* ── Construir link de WhatsApp con UTM tracking ── */
+/* ── Construir link de WhatsApp ── */
 function buildWhatsAppURL() {
-  var params = new URLSearchParams(window.location.search);
-  var source = params.get('utm_source') || (params.get('fbclid') ? 'facebook' : 'directo');
-  var campaign = params.get('utm_campaign') || 'sin-campana';
-  var ad = params.get('utm_content') || params.get('utm_ad') || 'sin-anuncio';
-
-
-  var msg = WA_BASE_MSG;
-  msg += ' | Fuente: ' + source;
-  msg += ' | Campaña: ' + campaign;
-  msg += ' | Anuncio: ' + ad;
-
-
-  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_BASE_MSG);
 }
 
 /* ── Inicializar todos los links de WhatsApp ── */
