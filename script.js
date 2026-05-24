@@ -10,7 +10,7 @@
 
 var PIXEL_ID = '1541165377405964';
 var WA_NUMBER = '573125057113';
-var WA_BASE_MSG = 'Hola quiero comprar el TV Stick 📺';
+var WA_BASE_MSG = 'Hola quiero comprar el TV Stick';
 
 /* ── Leer cookie por nombre ── */
 function getCookie(name) {
