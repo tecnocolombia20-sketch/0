@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
    META PIXEL + CONVERSIONS API (CAPI) — TV Stick Colombia
-   Configurado para: VENTAS → Sitio web → Lead
+   Configurado para: VENTAS → Sitio web → InitiateCheckout
    
    Eventos:
-     PageView    → Solo navegador (estándar de Meta)
-     ViewContent → Pixel + CAPI (sin value, solo informativo)
-     Lead        → Pixel + CAPI (click en WhatsApp)
+     PageView         → Solo navegador (estándar de Meta)
+     ViewContent      → Pixel + CAPI (sin value, solo informativo)
+     InitiateCheckout → Pixel + CAPI (click en WhatsApp)
    ═══════════════════════════════════════════════════════════════ */
 
 var PIXEL_ID = '1541165377405964';
@@ -89,17 +89,20 @@ trackEvent('ViewContent', {
   currency:         'COP',
 });
 
-/* ── Botón WhatsApp — LEAD (1 vez por sesión) ── */
-var _leadFired = false;
+/* ── Botón WhatsApp — INITIATE CHECKOUT (1 vez por sesión) ── */
+var _checkoutFired = false;
 
 function trackWA() {
-  if (_leadFired) return;
-  _leadFired = true;
+  if (_checkoutFired) return;
+  _checkoutFired = true;
 
-  trackEvent('Lead', {
+  trackEvent('InitiateCheckout', {
+    content_ids:  ['tvstick-co-001'],
+    content_type: 'product',
     content_name: 'TV Stick Colombia',
     value:        98000,
     currency:     'COP',
+    num_items:    1,
   });
 }
 
