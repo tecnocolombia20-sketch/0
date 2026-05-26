@@ -233,13 +233,16 @@ nav.scrolled {
 }
 
 /* ── SLIDER ── */
-.slider-wrap {
-  position: relative;
-  margin-bottom: 36px;
+.video-wrap {
   max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: calc(100% + 40px);     /* ← AGREGAR */
+  margin-left: -20px;            /* ← AGREGAR */
+  margin-right: -20px;           /* ← AGREGAR */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.14), 0 6px 18px rgba(0,0,0,0.08);
 }
+
 .slider-track {
   position: relative;
   width: 100%;
@@ -434,11 +437,14 @@ nav.scrolled {
 /* ── VIDEO ── */
 .video-wrap {
   max-width: 100%;
-  margin: 0 auto;
+  width: calc(100% + 40px);     /* ← AGREGAR */
+  margin-left: -20px;            /* ← AGREGAR */
+  margin-right: -20px;           /* ← AGREGAR */
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0,0,0,0.14), 0 6px 18px rgba(0,0,0,0.08);
 }
+
 .video-wrap video { width: 100%; display: block; }
 
 /* ── BENEFITS ── */
