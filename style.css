@@ -236,7 +236,7 @@ nav.scrolled {
 .slider-wrap {
   position: relative;
   margin-bottom: 36px;
-  max-width: 440px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -295,6 +295,7 @@ nav.scrolled {
   width: 22px;
   background: linear-gradient(135deg, #25D366, #128C7E);
 }
+
 
 /* ── PRICE BLOCK ── */
 .price-block { margin-bottom: 28px; }
