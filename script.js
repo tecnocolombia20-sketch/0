@@ -132,20 +132,26 @@ window.addEventListener('scroll', function () {
   setInterval(tick, 1000);
 })();
 
-/* ── IMAGE SLIDER ── */
-(function () {
-  var slides = document.querySelectorAll('.slide-img');
-  var dots   = document.querySelectorAll('.dot');
-  var current = 0;
-  var touchStartX = null;
+/* ── GALLERY — selección manual ── */
+var galleryImages = [
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_165727_h9ku0l.png',
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172557_ktrojo.png',
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143771/IMG_20260518_172620_ttb7ni.png',
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172331_qc7oyn.png',
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779144794/IMG_20260518_172846_s9chpm.png'
+];
 
-  function goTo(index) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
+function selectImg(index) {
+  var mainImg = document.getElementById('mainImg');
+  mainImg.src = galleryImages[index];
+
+  var thumbs = document.querySelectorAll('.thumb');
+  for (var i = 0; i < thumbs.length; i++) {
+    thumbs[i].classList.remove('active');
   }
+  thumbs[index].classList.add('active');
+}
+
 
   window.goToSlide = goTo;
   setInterval(function () { goTo(current + 1); }, 4000);
