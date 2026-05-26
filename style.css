@@ -711,3 +711,28 @@ nav.scrolled {
 @media (min-width: 768px) {
   .sticky-wa-bar { display: none; }
 }
+
+/* ── PANTALLA GRANDE (PC) ── */
+@media (min-width: 768px) {
+  .slider-wrap {
+    width: 560px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .slider-track {
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.14), 0 6px 18px rgba(0,0,0,0.08);
+  }
+  .slide-img {
+    border-radius: 20px;
+  }
+  .video-wrap {
+    width: 640px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.14), 0 6px 18px rgba(0,0,0,0.08);
+  }
+}
