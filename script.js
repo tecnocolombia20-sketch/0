@@ -151,29 +151,3 @@ function selectImg(index) {
   }
   thumbs[index].classList.add('active');
 }
-
-
-  window.goToSlide = goTo;
-  setInterval(function () { goTo(current + 1); }, 4000);
-
-  var track = document.getElementById('sliderTrack');
-  track.addEventListener('touchstart', function (e) {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  track.addEventListener('touchend', function (e) {
-    if (touchStartX === null) return;
-    var delta = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(delta) < 40) return;
-    goTo(delta > 0 ? current + 1 : current - 1);
-    touchStartX = null;
-  });
-
-  var mouseStartX = null;
-  track.addEventListener('mousedown', function (e) { mouseStartX = e.clientX; });
-  track.addEventListener('mouseup', function (e) {
-    if (mouseStartX === null) return;
-    var delta = mouseStartX - e.clientX;
-    if (Math.abs(delta) > 40) goTo(delta > 0 ? current + 1 : current - 1);
-    mouseStartX = null;
-  });
-})();
