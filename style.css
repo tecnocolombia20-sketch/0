@@ -761,3 +761,30 @@ nav.scrolled {
     box-shadow: 0 24px 64px rgba(0,0,0,0.14), 0 6px 18px rgba(0,0,0,0.08);
   }
 }
+
+/* ── BOTÓN COMPRAR ANIMADO ── */
+@keyframes btnPulse {
+  0%   { box-shadow: 0 8px 30px rgba(37,211,102,0.35); }
+  50%  { box-shadow: 0 8px 50px rgba(37,211,102,0.7), 0 0 30px rgba(37,211,102,0.4); }
+  100% { box-shadow: 0 8px 30px rgba(37,211,102,0.35); }
+}
+
+@keyframes btnBounce {
+  0%, 100% { transform: translateY(0); }
+  15%      { transform: translateY(-4px); }
+  30%      { transform: translateY(0); }
+  45%      { transform: translateY(-2px); }
+  60%      { transform: translateY(0); }
+}
+
+.btn-wa {
+  animation: btnPulse 2s infinite, btnBounce 3s infinite;
+}
+
+.btn-wa-sm {
+  animation: btnPulse 2s infinite;
+}
+
+.btn-nav {
+  animation: btnPulse 2.5s infinite;
+}
