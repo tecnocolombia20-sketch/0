@@ -134,11 +134,12 @@ window.addEventListener('scroll', function () {
 
 /* ── GALLERY — selección manual ── */
 var galleryImages = [
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_165727_h9ku0l.png',
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png',
   'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172557_ktrojo.png',
   'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779842807/photo_2026-03-10_14-39-55_osyonj.jpg',
   'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172331_qc7oyn.png',
   'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779144794/IMG_20260518_172846_s9chpm.png'
+  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_165727_h9ku0l.png'
 ];
 
 function selectImg(index) {
