@@ -132,23 +132,47 @@ window.addEventListener('scroll', function () {
   setInterval(tick, 1000);
 })();
 
-/* ── GALLERY — selección manual ── */
-var galleryImages = [
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png',
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172557_ktrojo.png',
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779842807/photo_2026-03-10_14-39-55_osyonj.jpg',
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172331_qc7oyn.png',
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779144794/IMG_20260518_172846_s9chpm.png'
-  'https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_165727_h9ku0l.png'
+// AGREGA TODAS LAS FOTOS QUE QUIERAS AQUÍ. SIN LÍMITE.
+const galleryImages = [
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png", alt: "Imagen 1" },
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172557_ktrojo.png", alt: "Imagen 2" },
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779842807/photo_2026-03-10_14-39-55_osyonj.jpg", alt: "Imagen 3" },
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172331_qc7oyn.png", alt: "Imagen 4" },
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779144794/IMG_20260518_172846_s9chpm.png", alt: "Imagen 5" },
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_165727_h9ku0l.png", alt: "Imagen 6" }
+  // Para agregar más, solo copia una línea y pega la URL nueva abajo
 ];
 
-function selectImg(index) {
-  var mainImg = document.getElementById('mainImg');
-  mainImg.src = galleryImages[index];
-
-  var thumbs = document.querySelectorAll('.thumb');
-  for (var i = 0; i < thumbs.length; i++) {
-    thumbs[i].classList.remove('active');
-  }
-  thumbs[index].classList.add('active');
+function renderGallery() {
+  const mainImg = document.getElementById('mainImg');
+  const thumbsContainer = document.getElementById('galleryThumbs');
+  
+  if (!mainImg || !thumbsContainer) return;
+  
+  // Imagen principal inicial (la primera del array)
+  mainImg.src = galleryImages[0].src;
+  mainImg.alt = galleryImages[0].alt;
+  
+  // Generar miniaturas automáticamente
+  thumbsContainer.innerHTML = galleryImages.map((img, index) => `
+    <button class="thumb ${index === 0 ? 'active' : ''}" onclick="selectImg(${index})">
+      <img src="${img.src}" alt="${img.alt}" />
+    </button>
+  `).join('');
 }
+
+function selectImg(index) {
+  const mainImg = document.getElementById('mainImg');
+  const thumbs = document.querySelectorAll('.gallery-thumbs .thumb');
+  
+  if (!mainImg || !galleryImages[index]) return;
+  
+  mainImg.src = galleryImages[index].src;
+  mainImg.alt = galleryImages[index].alt;
+  
+  thumbs.forEach(t => t.classList.remove('active'));
+  if (thumbs[index]) thumbs[index].classList.add('active');
+}
+
+// Inicializar galería al cargar la página
+document.addEventListener('DOMContentLoaded', renderGallery);
