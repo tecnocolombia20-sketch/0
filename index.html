@@ -159,7 +159,16 @@
         </div>
       </div>
 
-    <!-- VIDEO 1 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- CRÍTICO PARA MÓVILES: sin esto el ancho 100vw no funciona bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+
+<!-- VIDEO 1 -->
 <section class="section" style="overflow: visible;">
   <div class="container text-center">
     <span class="section-tag">Video demostrativo en vivo</span>
@@ -169,11 +178,13 @@
 
   <div class="video-wrap responsive-video-wrap">
     <video
+      class="landing-video"
       autoplay
       muted
       loop
       playsinline
       webkit-playsinline
+      x5-playsinline
       preload="auto"
       disablePictureInPicture
       controlsList="nodownload noplaybackrate nofullscreen"
@@ -199,14 +210,17 @@
 
   <div class="video-wrap responsive-video-wrap">
     <video
+      class="landing-video"
       autoplay
       muted
       loop
       playsinline
       webkit-playsinline
+      x5-playsinline
       preload="auto"
       disablePictureInPicture
       controlsList="nodownload noplaybackrate nofullscreen"
+      poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg"
     >
       <source 
         src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" 
@@ -220,27 +234,31 @@
 <div class="divider"></div>
 
 <style>
-  /* ===== ESTILOS BASE (CLASE, NO ID) ===== */
+  /* ===== RESET BÁSICO PARA VIDEOS ===== */
   .responsive-video-wrap {
     position: relative;
     width: 100%;
     background: #000;
     overflow: hidden;
+    line-height: 0; /* Elimina espacio fantasma debajo del video */
   }
 
-  .responsive-video-wrap video {
+  .landing-video {
     display: block;
     width: 100%;
-    height: auto;
+    height: auto;           /* Mantiene proporción original SIN CORTAR */
     pointer-events: none;
     user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
   }
 
-  /* ===== MÓVIL: FULL WIDTH ===== */
+  /* ===== MÓVIL: FULL WIDTH REAL ===== */
   @media (max-width: 768px) {
     .responsive-video-wrap {
       width: 100vw;
       max-width: 100vw;
+      position: relative;
       left: 50%;
       right: 50%;
       margin-left: -50vw;
@@ -249,7 +267,7 @@
     }
   }
 
-  /* ===== PC: CENTRADO ===== */
+  /* ===== PC: CENTRADO Y CON LÍMITE ===== */
   @media (min-width: 769px) {
     .responsive-video-wrap {
       max-width: 900px;
@@ -260,26 +278,38 @@
 </style>
 
 <script>
-  (function() {
-    // Selecciona TODOS los videos, no solo el primero
-    const videos = document.querySelectorAll('.responsive-video-wrap video');
-    
-    videos.forEach(function(v) {
-      // Fuerza autoplay en cada video
-      v.play().catch(function() {});
-      
-      // Evita pausa
-      v.addEventListener('pause', function() {
-        v.play();
+  document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.landing-video');
+
+    videos.forEach(function(video) {
+      // 1. Fuerza autoplay con manejo de error (iOS/Safari a veces bloquean el primero)
+      var promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(function(error) {
+          console.log('Autoplay bloqueado temporalmente, se reintentará');
+        });
+      }
+
+      // 2. Si el usuario o el sistema pausan, se reanuda inmediatamente
+      video.addEventListener('pause', function() {
+        video.play();
       });
-      
-      // Evita menú derecho
-      v.addEventListener('contextmenu', function(e) {
+
+      // 3. Bloquea menú derecho (descargar, etc.)
+      video.addEventListener('contextmenu', function(e) {
         e.preventDefault();
       });
+
+      // 4. Por si el navegador requiere interacción del usuario para iniciar audio/video
+      document.body.addEventListener('touchstart', function() {
+        video.play();
+      }, { once: true });
     });
-  })();
+  });
 </script>
+
+</body>
+</html>
 
 
       <!-- FEATURES -->
