@@ -165,17 +165,26 @@
     <span class="section-tag">Video demostrativo en vivo</span>
     <h2 class="section-title">Mira nuestro producto funcionando</h2>
     <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
-    <div class="video-wrap">
+    
+    <div class="video-wrap" style="position: relative; width: 100%; max-width: 900px; margin: 0 auto; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden;">
       <video
-        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4"
         autoplay
         muted
         loop
         playsinline
+        webkit-playsinline
+        preload="auto"
         disablePictureInPicture
         controlsList="nodownload noplaybackrate nofullscreen"
-        style="pointer-events: none; user-select: none; max-width: 100%;"
-      ></video>
+        poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; display: block;"
+      >
+        <source 
+          src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" 
+          type="video/mp4"
+        >
+        Tu navegador no soporta videos HTML5.
+      </video>
     </div>
   </div>
 </section>
@@ -186,6 +195,9 @@
   (function() {
     const v = document.querySelector('.video-wrap video');
     if (!v) return;
+    
+    // Fuerza reproducción al cargar y evita pausa
+    v.play().catch(() => {});
     v.addEventListener('pause', () => v.play());
     v.addEventListener('contextmenu', e => e.preventDefault());
   })();
