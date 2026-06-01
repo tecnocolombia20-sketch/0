@@ -134,7 +134,7 @@ window.addEventListener('scroll', function () {
 
 // AGREGA TODAS LAS FOTOS QUE QUIERAS AQUÍ. SIN LÍMITE.
 const galleryImages = [
-  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780283734/file_0000000042ac720e8c00cef23016eed1_1_pzdnfa.png", alt: "Imagen 1" },
+  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780284159/file_0000000042ac720e8c00cef23016eed1_1_1_e1kk77.png", alt: "Imagen 1" },
   { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172557_ktrojo.png", alt: "Imagen 2" },
   { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779143770/IMG_20260518_172331_qc7oyn.png", alt: "Imagen 3" },
   { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1779144794/IMG_20260518_172846_s9chpm.png", alt: "Imagen 4" },
