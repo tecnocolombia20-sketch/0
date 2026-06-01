@@ -159,7 +159,7 @@
         </div>
       </div>
 
-    <!-- VIDEO DEMO -->
+    <!-- VIDEO 1 -->
 <section class="section" style="overflow: visible;">
   <div class="container text-center">
     <span class="section-tag">Video demostrativo en vivo</span>
@@ -167,7 +167,7 @@
     <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
   </div>
 
-  <div class="video-wrap" id="responsive-video-wrap">
+  <div class="video-wrap responsive-video-wrap">
     <video
       autoplay
       muted
@@ -190,63 +190,14 @@
 
 <div class="divider"></div>
 
-<style>
-  /* ===== ESTILOS BASE ===== */
-  #responsive-video-wrap {
-    position: relative;
-    width: 100%;
-    background: #000;
-    overflow: hidden;
-  }
-
-  #responsive-video-wrap video {
-    display: block;
-    width: 100%;
-    height: auto;           /* Mantiene la proporción original del video */
-    pointer-events: none;
-    user-select: none;
-  }
-
-  /* ===== MÓVIL: FULL WIDTH + VIDEO COMPLETO ===== */
-  @media (max-width: 768px) {
-    #responsive-video-wrap {
-      width: 100vw;
-      max-width: 100vw;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      border-radius: 0;
-      /* ELIMINADO: aspect-ratio (eso cortaba el video) */
-    }
-  }
-
-  /* ===== PC: CENTRADO CON MÁXIMO ===== */
-  @media (min-width: 769px) {
-    #responsive-video-wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 12px;
-    }
-  }
-</style>
-
-<script>
-  (function() {
-    const v = document.querySelector('#responsive-video-wrap video');
-    if (!v) return;
-    v.play().catch(() => {});
-    v.addEventListener('pause', () => v.play());
-    v.addEventListener('contextmenu', e => e.preventDefault());
-  })();
-  </script>
-
-      <!-- VIDEO DEMO -->
+<!-- VIDEO 2 -->
 <section class="section" style="overflow: visible;">
   <div class="container text-center">
+    <span class="section-tag">Segunda demostración</span>
+    <h2 class="section-title">Mira cómo funciona el click</h2>
   </div>
 
-  <div class="video-wrap" id="responsive-video-wrap">
+  <div class="video-wrap responsive-video-wrap">
     <video
       autoplay
       muted
@@ -256,10 +207,9 @@
       preload="auto"
       disablePictureInPicture
       controlsList="nodownload noplaybackrate nofullscreen"
-      poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
     >
       <source 
-        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/v1780271602/click_corto_landing_d1tr3d.mp4" 
+        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" 
         type="video/mp4"
       >
       Tu navegador no soporta videos HTML5.
@@ -270,25 +220,25 @@
 <div class="divider"></div>
 
 <style>
-  /* ===== ESTILOS BASE ===== */
-  #responsive-video-wrap {
+  /* ===== ESTILOS BASE (CLASE, NO ID) ===== */
+  .responsive-video-wrap {
     position: relative;
     width: 100%;
     background: #000;
     overflow: hidden;
   }
 
-  #responsive-video-wrap video {
+  .responsive-video-wrap video {
     display: block;
     width: 100%;
-    height: auto;           /* Mantiene la proporción original del video */
+    height: auto;
     pointer-events: none;
     user-select: none;
   }
 
-  /* ===== MÓVIL: FULL WIDTH + VIDEO COMPLETO ===== */
+  /* ===== MÓVIL: FULL WIDTH ===== */
   @media (max-width: 768px) {
-    #responsive-video-wrap {
+    .responsive-video-wrap {
       width: 100vw;
       max-width: 100vw;
       left: 50%;
@@ -296,13 +246,12 @@
       margin-left: -50vw;
       margin-right: -50vw;
       border-radius: 0;
-      /* ELIMINADO: aspect-ratio (eso cortaba el video) */
     }
   }
 
-  /* ===== PC: CENTRADO CON MÁXIMO ===== */
+  /* ===== PC: CENTRADO ===== */
   @media (min-width: 769px) {
-    #responsive-video-wrap {
+    .responsive-video-wrap {
       max-width: 900px;
       margin: 0 auto;
       border-radius: 12px;
@@ -312,11 +261,23 @@
 
 <script>
   (function() {
-    const v = document.querySelector('#responsive-video-wrap video');
-    if (!v) return;
-    v.play().catch(() => {});
-    v.addEventListener('pause', () => v.play());
-    v.addEventListener('contextmenu', e => e.preventDefault());
+    // Selecciona TODOS los videos, no solo el primero
+    const videos = document.querySelectorAll('.responsive-video-wrap video');
+    
+    videos.forEach(function(v) {
+      // Fuerza autoplay en cada video
+      v.play().catch(function() {});
+      
+      // Evita pausa
+      v.addEventListener('pause', function() {
+        v.play();
+      });
+      
+      // Evita menú derecho
+      v.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+    });
   })();
 </script>
 
