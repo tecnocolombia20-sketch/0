@@ -159,6 +159,39 @@
         </div>
       </div>
 
+      <!-- VIDEO DEMO -->
+<section class="section">
+  <div class="container text-center">
+    <span class="section-tag">Demo en vivo</span>
+    <h2 class="section-title">Mira el producto funcionando</h2>
+    <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
+    <div class="video-wrap">
+      <video
+        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        disablePictureInPicture
+        controlsList="nodownload noplaybackrate nofullscreen"
+        style="pointer-events: none; user-select: none; max-width: 100%;"
+      ></video>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<script>
+  (function() {
+    const v = document.querySelector('.video-wrap video');
+    if (!v) return;
+    v.addEventListener('pause', () => v.play());
+    v.addEventListener('contextmenu', e => e.preventDefault());
+  })();
+</script>
+
+
       <!-- FEATURES -->
       <div class="features-card">
         <div class="feature-item">
@@ -183,23 +216,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- VIDEO DEMO -->
-  <section class="section">
-    <div class="container text-center">
-      <span class="section-tag">Demo en vivo</span>
-      <h2 class="section-title">Mira el producto funcionando</h2>
-      <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
-      <div class="video-wrap">
-        <video
-          src="https://res.cloudinary.com/dsh0z1w5j/video/upload/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4"
-          autoplay muted loop playsinline controls
-        ></video>
-      </div>
     </div>
   </section>
 
