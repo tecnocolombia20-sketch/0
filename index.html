@@ -160,13 +160,22 @@
       </div>
 
       <!-- VIDEO DEMO -->
-<section class="section">
-  <div class="container text-center">
+<section class="section" style="overflow: hidden;">
+  <div class="container text-center" style="padding-left: 0; padding-right: 0;">
     <span class="section-tag">Video demostrativo en vivo</span>
     <h2 class="section-title">Mira nuestro producto funcionando</h2>
     <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
     
-    <div class="video-wrap" style="position: relative; width: 100%; max-width: 900px; margin: 0 auto; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden;">
+    <div class="video-wrap" style="
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+      border-radius: 0;
+    ">
       <video
         autoplay
         muted
@@ -177,7 +186,17 @@
         disablePictureInPicture
         controlsList="nodownload noplaybackrate nofullscreen"
         poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; display: block;"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          pointer-events: none;
+          user-select: none;
+          display: block;
+        "
       >
         <source 
           src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" 
@@ -189,14 +208,38 @@
   </div>
 </section>
 
+<style>
+  /* MÓVIL: video full width sin bordes redondeados */
+  @media (max-width: 768px) {
+    .video-wrap {
+      max-width: 100% !important;
+      border-radius: 0 !important;
+      aspect-ratio: 16/9 !important;
+    }
+    /* Si tu .container tiene padding lateral, esto lo anula solo para esta sección */
+    #video-demo-section .container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+
+  /* PC: tamaño normal y centrado */
+  @media (min-width: 769px) {
+    .video-wrap {
+      max-width: 900px !important;
+      border-radius: 12px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+</style>
+
 <div class="divider"></div>
 
 <script>
   (function() {
     const v = document.querySelector('.video-wrap video');
     if (!v) return;
-    
-    // Fuerza reproducción al cargar y evita pausa
     v.play().catch(() => {});
     v.addEventListener('pause', () => v.play());
     v.addEventListener('contextmenu', e => e.preventDefault());
