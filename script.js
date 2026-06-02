@@ -422,15 +422,4 @@
 </body>
 </html>
 
-/* ── VIDEO AUTOPLAY FORZADO ── */
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.landing-video').forEach(function(v) {
-    v.play().catch(function(){});
-    v.addEventListener('pause', function() { v.play(); });
-    v.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-  });
-  document.body.addEventListener('touchstart', function() {
-    document.querySelectorAll('.landing-video').forEach(function(v) { v.play(); });
-  }, { once: true });
-});
 
