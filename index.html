@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-
+  
   <!-- Schema Markup — Producto -->
   <script type="application/ld+json">
   {
@@ -44,23 +44,6 @@
   }
   </script>
 
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1541165377405964');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1541165377405964&ev=PageView&noscript=1" />
-  </noscript>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,8 +55,9 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Estilos críticos de video (manteniendo tu diseño exacto) -->
+    <!-- Estilos críticos: video, imagen y animación -->
   <style>
+    /* ===== VIDEOS ===== */
     .responsive-video-wrap {
       position: relative;
       width: 100%;
@@ -85,6 +69,7 @@
       display: block;
       width: 100%;
       height: auto;
+      max-width: 100%;
       pointer-events: none;
       user-select: none;
       -webkit-touch-callout: none;
@@ -109,9 +94,37 @@
         border-radius: 12px;
       }
     }
+
+    /* ===== IMAGEN PRINCIPAL ===== */
+    .gallery-main {
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+    }
+    #mainImg {
+      width: 100%;
+      height: auto !important;
+      object-fit: contain !important;
+      max-height: none !important;
+      display: block;
+    }
+
+               /* ===== BOTÓN ANIMADO — MÁS AGRESIVO SOLO EN "COMPRAR" ===== */
+    @keyframes wa-bounce {
+      0%, 100% { transform: scale(1) translateY(0); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35); }
+      30% { transform: scale(1.08) translateY(-10px); box-shadow: 0 18px 45px rgba(37, 211, 102, 0.75); }
+      50% { transform: scale(0.96) translateY(3px); box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25); }
+      70% { transform: scale(1.05) translateY(-5px); box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6); }
+    }
+    .btn-wa-sm {
+      animation: wa-bounce 5s infinite ease-in-out;
+      transform-origin: center;
+      will-change: transform;
+    }
   </style>
 </head>
 <body>
+
 
   <!-- TICKER BAR -->
   <div class="ticker-wrap">
@@ -163,8 +176,8 @@
       <div class="gallery-wrap fade-in-3" id="galleryWrap">
         <div class="gallery-main">
           <!-- Nota: asegúrate de que script.js asigne el src, o pon aquí la primera imagen -->
-          <img src="" alt="TV Stick" class="gallery-img active" id="mainImg" fetchpriority="high" loading="eager" decoding="async" />
-          <div class="stock-tag">✅ Stock disponible</div>
+          <img src="https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png" alt="TV Stick Colombia" class="gallery-img active" id="mainImg" fetchpriority="high" loading="eager" decoding="async" width="600" height="600" />
+         <div class="stock-tag">✅ Stock disponible</div>
         </div>
         <div class="gallery-thumbs" id="galleryThumbs">
           <!-- Las miniaturas se generan automáticamente -->
@@ -225,7 +238,7 @@
 
   <div class="divider"></div>
 
-  <!-- VIDEO 1 -->
+    <!-- VIDEO 1 -->
   <section class="section" style="overflow: visible;">
     <div class="container text-center">
       <span class="section-tag">Video demostrativo en vivo</span>
@@ -242,7 +255,7 @@
         playsinline
         webkit-playsinline
         x5-playsinline
-        preload="auto"
+        preload="metadata"
         disablePictureInPicture
         controlsList="nodownload noplaybackrate nofullscreen"
         poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
@@ -256,7 +269,6 @@
     </div>
   </section>
 
-  <div class="divider"></div>
 
   <!-- VIDEO 2 -->
   <section class="section" style="overflow: visible;">
@@ -266,7 +278,7 @@
     </div>
 
     <div class="video-wrap responsive-video-wrap">
-      <video
+            <video
         class="landing-video"
         autoplay
         muted
@@ -274,11 +286,12 @@
         playsinline
         webkit-playsinline
         x5-playsinline
-        preload="auto"
+        preload="metadata"
         disablePictureInPicture
         controlsList="nodownload noplaybackrate nofullscreen"
         poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg"
       >
+
         <source 
           src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" 
           type="video/mp4"
@@ -460,11 +473,12 @@
         </a>
         <span class="footer-badges">🚚 Envío GRATIS · 📦 Pago al recibir</span>
       </div>
-      <p class="footer-copy">© <span id="year"></span> TV Stick Colombia · Todos los derechos reservados · <a href="/privacy.html" style="color:#fff;text-decoration:underline">Política de Privacidad</a></p>
+      <p class="footer-copy">© <span id="year">2026</span> 
+        TV Stick Colombia · Todos los derechos reservados · <a href="/privacy.html" style="color:#fff;text-decoration:underline">Política de Privacidad</a></p>
     </div>
   </footer>
 
-  <!-- STICKY MOBILE BAR -->
+    <!-- STICKY MOBILE BAR -->
   <div class="sticky-wa-bar" id="stickyBar">
     <div class="sticky-info">
       <div class="sticky-title">TV Stick · $98.000 COP</div>
@@ -477,6 +491,24 @@
       ¡Comprar!
     </a>
   </div>
+
+    <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1541165377405964');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1541165377405964&ev=PageView&noscript=1" />
+  </noscript>
 
   <script src="script.js"></script>
 </body>
