@@ -126,7 +126,7 @@
       <!-- GALERÍA -->
       <div class="gallery-wrap fade-in-3" id="galleryWrap">
         <div class="gallery-main">
-          <img src="" alt="TV Stick Colombia" class="gallery-img active" id="mainImg" />
+          <img src="https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png" alt="TV Stick Colombia" class="gallery-img active" id="mainImg" loading="eager" fetchpriority="high" />
           <div class="stock-tag">✅ Stock disponible</div>
         </div>
         <div class="gallery-thumbs" id="galleryThumbs"></div>
@@ -167,7 +167,7 @@
       <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
     </div>
     <div class="video-wrap responsive-video-wrap">
-      <video class="landing-video" autoplay muted loop playsinline preload="metadata" disablePictureInPicture controlsList="nodownload nofullscreen" poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg">
+      <video class="landing-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" disablePictureInPicture controlsList="nodownload noplaybackrate nofullscreen" poster="...">
         <source src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" type="video/mp4">
       </video>
     </div>
@@ -182,7 +182,7 @@
       <h2 class="section-title">Mira cómo funciona el click</h2>
     </div>
     <div class="video-wrap responsive-video-wrap">
-      <video class="landing-video" autoplay muted loop playsinline preload="metadata" disablePictureInPicture controlsList="nodownload nofullscreen" poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg">
+      <video class="landing-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" disablePictureInPicture controlsList="nodownload noplaybackrate nofullscreen" poster="...">
         <source src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" type="video/mp4">
       </video>
     </div>
