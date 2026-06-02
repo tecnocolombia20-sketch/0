@@ -5,40 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Convierte tu TV en Smart TV HOY con el TV Stick Colombia. Netflix, YouTube, Google y miles de apps. Envío gratis, pago contra entrega." />
   <meta name="theme-color" content="#25D366" />
-
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📺</text></svg>" />
   <title>TV Stick Colombia — Convierte tu TV en Smart TV HOY</title>
   <link rel="canonical" href="https://0-7sb.pages.dev/" />
 
-  <!-- Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
-  <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📺%3C/text%3E%3C/svg%3E" />
-
-  <!-- Open Graph -->
+  <!-- Open Graph para Meta Ads -->
   <meta property="og:title" content="TV Stick Colombia — Convierte tu TV en Smart TV HOY" />
   <meta property="og:description" content="Netflix, YouTube, Google y miles de apps. Envío gratis + pago contra entrega." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
   <meta property="og:url" content="https://0-7sb.pages.dev/" />
-  <meta property="og:image" content="https://res.cloudinary.com/dsh0z1w5j/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png" />
+  <meta property="fb:page_id" content="61589174910562" />
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Schema Markup -->
+  <!-- Schema Markup — Producto -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "TV Stick Colombia",
     "description": "Convierte tu TV en Smart TV. Netflix, YouTube, Google y miles de apps. Envío gratis a toda Colombia, pago contra entrega.",
-    "image": "https://res.cloudinary.com/dsh0z1w5j/image/upload/f_auto,q_auto/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png",
+    "image": "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png",
     "brand": { "@type": "Brand", "name": "TV Stick CO" },
     "offers": {
       "@type": "Offer",
@@ -55,7 +47,7 @@
   }
   </script>
 
-  <!-- Meta Pixel -->
+    <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -65,97 +57,25 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    // Inicializar Pixel + PageView
     fbq('init', '1541165377405964');
     fbq('track', 'PageView');
   </script>
-    <noscript>
+  <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1541165377405964&ev=PageView&noscript=1" alt="" />
+      src="https://www.facebook.com/tr?id=1541165377405964&ev=PageView&noscript=1" />
   </noscript>
+  <!-- Fin Meta Pixel -->
 
 
-  <!-- Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* ===== GALERÍA ===== */
-    .gallery-main {
-      width: 100%;
-      height: auto;
-      overflow: visible;
-      line-height: 0;
-    }
-    #mainImg,
-    .gallery-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-      margin: 0 auto;
-      border-radius: 12px;
-    }
-    .gallery-thumbs {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-    .gallery-thumbs img {
-      width: 64px;
-      height: 64px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color .2s;
-    }
-    .gallery-thumbs img:hover,
-    .gallery-thumbs img.active {
-      border-color: #25D366;
-    }
-
-    /* ===== VIDEOS ===== */
-    .responsive-video-wrap {
-      position: relative;
-      width: 100%;
-      background: #000;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .landing-video {
-      display: block;
-      width: 100%;
-      height: auto;
-      pointer-events: none;
-      user-select: none;
-      -webkit-touch-callout: none;
-      -webkit-user-drag: none;
-    }
-    @media (max-width: 768px) {
-      .responsive-video-wrap {
-        width: 100vw;
-        max-width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        border-radius: 0;
-      }
-    }
-    @media (min-width: 769px) {
-      .responsive-video-wrap {
-        max-width: 900px;
-        margin: 0 auto;
-        border-radius: 12px;
-      }
-    }
-  </style>
 </head>
-
 <body>
+
   <!-- TICKER BAR -->
   <div class="ticker-wrap">
     <span class="ticker-content">
@@ -173,8 +93,8 @@
       <a href="https://wa.me/573125057113?text=Hola%20quiero%20comprar%20el%20TV%20Stick"
          target="_blank" rel="noopener noreferrer"
          class="btn-nav wa-btn" onclick="trackWA()">
-        <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
-        💬 ¡Comprar ahora!
+        <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
+        💬 ¡Comprar ahora! 
       </a>
     </div>
   </nav>
@@ -182,6 +102,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container text-center">
+
       <div class="urgency-badge fade-in">
         🔥 OFERTA LIMITADA HOY
       </div>
@@ -201,30 +122,17 @@
         <span class="trust-badge">🔒 Compra segura</span>
       </div>
 
-      <!-- GALERÍA -->
+            <!-- GALERÍA DE IMÁGENES -->
       <div class="gallery-wrap fade-in-3" id="galleryWrap">
         <div class="gallery-main">
-          <img
-            src="https://res.cloudinary.com/dsh0z1w5j/image/upload/f_auto,q_auto,w_800/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png"
-            srcset="
-              https://res.cloudinary.com/dsh0z1w5j/image/upload/f_auto,q_auto,w_400/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png 400w,
-              https://res.cloudinary.com/dsh0z1w5j/image/upload/f_auto,q_auto,w_800/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png 800w,
-              https://res.cloudinary.com/dsh0z1w5j/image/upload/f_auto,q_auto,w_1200/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png 1200w
-            "
-            sizes="(max-width: 768px) 100vw, 800px"
-            width="800"
-            height="800"
-            alt="TV Stick Colombia conectado a televisor mostrando apps de streaming"
-            class="gallery-img active"
-            id="mainImg"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <div class="stock-tag">✅ Unidades disponibles</div>
+          <img src="" alt="TV Stick" class="gallery-img active" id="mainImg" />
+          <div class="stock-tag">✅ Stock disponible</div>
         </div>
-        <div class="gallery-thumbs" id="galleryThumbs"></div>
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <!-- Las miniaturas se generan automáticamente -->
+        </div>
       </div>
-
+           
 
       <!-- PRECIO -->
       <div class="price-block fade-in-4">
@@ -244,101 +152,190 @@
           <a href="https://wa.me/573125057113?text=Hola%20quiero%20comprar%20el%20TV%20Stick"
              target="_blank" rel="noopener noreferrer"
              class="btn-wa" onclick="trackWA()">
-            <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
+            <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
             💬 Pedir por WhatsApp
           </a>
           <p class="cta-warning">⚠️ Pocas unidades disponibles — no esperes</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- VIDEO 1 -->
-  <section class="section" style="overflow: visible;">
-    <div class="container text-center">
-      <span class="section-tag">Video demostrativo en vivo</span>
-      <h2 class="section-title">Mira nuestro producto funcionando</h2>
-      <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
-    </div>
-    <div class="video-wrap responsive-video-wrap">
-      <video
-        class="landing-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        disablePictureInPicture
-        controlsList="nodownload nofullscreen"
-        poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- CRÍTICO PARA MÓVILES: sin esto el ancho 100vw no funciona bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+
+<!-- VIDEO 1 -->
+<section class="section" style="overflow: visible;">
+  <div class="container text-center">
+    <span class="section-tag">Video demostrativo en vivo</span>
+    <h2 class="section-title">Mira nuestro producto funcionando</h2>
+    <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
+  </div>
+
+  <div class="video-wrap responsive-video-wrap">
+    <video
+      class="landing-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      x5-playsinline
+      preload="auto"
+      disablePictureInPicture
+      controlsList="nodownload noplaybackrate nofullscreen"
+      poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
+    >
+      <source 
+        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" 
+        type="video/mp4"
       >
-        <source src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- VIDEO 2 -->
-  <section class="section" style="overflow: visible;">
-    <div class="container text-center">
-      <span class="section-tag">Segunda demostración</span>
-      <h2 class="section-title">Mira cómo funciona el click</h2>
-    </div>
-    <div class="video-wrap responsive-video-wrap">
-      <video
-        class="landing-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        disablePictureInPicture
-        controlsList="nodownload nofullscreen"
-        poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg"
+<!-- VIDEO 2 -->
+<section class="section" style="overflow: visible;">
+  <div class="container text-center">
+    <span class="section-tag">Segunda demostración</span>
+    <h2 class="section-title">Mira cómo funciona el click</h2>
+  </div>
+
+  <div class="video-wrap responsive-video-wrap">
+    <video
+      class="landing-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      x5-playsinline
+      preload="auto"
+      disablePictureInPicture
+      controlsList="nodownload noplaybackrate nofullscreen"
+      poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg"
+    >
+      <source 
+        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" 
+        type="video/mp4"
       >
-        <source src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- FEATURES -->
-  <section class="section">
-    <div class="container">
+<style>
+  /* ===== RESET BÁSICO PARA VIDEOS ===== */
+  .responsive-video-wrap {
+    position: relative;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+    line-height: 0; /* Elimina espacio fantasma debajo del video */
+  }
+
+  .landing-video {
+    display: block;
+    width: 100%;
+    height: auto;           /* Mantiene proporción original SIN CORTAR */
+    pointer-events: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+  }
+
+  /* ===== MÓVIL: FULL WIDTH REAL ===== */
+  @media (max-width: 768px) {
+    .responsive-video-wrap {
+      width: 100vw;
+      max-width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      border-radius: 0;
+    }
+  }
+
+  /* ===== PC: CENTRADO Y CON LÍMITE ===== */
+  @media (min-width: 769px) {
+    .responsive-video-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.landing-video');
+
+    videos.forEach(function(video) {
+      // 1. Fuerza autoplay con manejo de error (iOS/Safari a veces bloquean el primero)
+      var promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(function(error) {
+          console.log('Autoplay bloqueado temporalmente, se reintentará');
+        });
+      }
+
+      // 2. Si el usuario o el sistema pausan, se reanuda inmediatamente
+      video.addEventListener('pause', function() {
+        video.play();
+      });
+
+      // 3. Bloquea menú derecho (descargar, etc.)
+      video.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      // 4. Por si el navegador requiere interacción del usuario para iniciar audio/video
+      document.body.addEventListener('touchstart', function() {
+        video.play();
+      }, { once: true });
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+      <!-- FEATURES -->
       <div class="features-card">
         <div class="feature-item">
-          <div class="feature-check">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span>Compatible con cualquier Televisor antiguo y nuevo</span>
+          <div class="feature-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Compatible con cualquier Televisor antiguo y nuevo </span>
         </div>
         <div class="feature-item">
-          <div class="feature-check">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="feature-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span>Configurado y con las mejores aplicaciones de entretenimiento</span>
         </div>
         <div class="feature-item">
-          <div class="feature-check">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span>Netflix, YouTube, Prime Video, Google y más</span>
+          <div class="feature-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Netflix, YouTube, Prime Video, google y más</span>
         </div>
         <div class="feature-item">
-          <div class="feature-check">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="feature-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span>Instalación fácil y rápida en segundos</span>
         </div>
         <div class="feature-item last">
-          <div class="feature-check">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="feature-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span>Productos nuevos, garantizados y listos para usar</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -390,7 +387,7 @@
   </section>
 
   <div class="divider"></div>
-
+  
   <!-- CÓMO FUNCIONA -->
   <section class="section">
     <div class="container text-center">
@@ -497,7 +494,7 @@
     </div>
   </section>
 
-    <!-- FOOTER CTA -->
+  <!-- FOOTER CTA -->
   <footer class="footer-cta">
     <div class="container text-center">
       <div class="urgency-badge urgency-dark">
@@ -509,16 +506,17 @@
         <a href="https://wa.me/573125057113?text=Hola%20quiero%20comprar%20el%20TV%20Stick"
            target="_blank" rel="noopener noreferrer"
            class="btn-wa" onclick="trackWA()">
-          <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
+          <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
           💬 ¡escríbenos aquí! — $98.000
         </a>
         <span class="footer-badges">🚚 Envío GRATIS · 📦 Pago al recibir</span>
       </div>
-      <p class="footer-copy">© <span id="year"></span> TV Stick Colombia · Todos los derechos reservados · <a href="#" style="color:#fff;text-decoration:underline">Política de Privacidad</a></p>
+      <p class="footer-copy">© <span id="year"></span> TV Stick Colombia · Todos los derechos reservados · <a href="/privacy.html" style="color:#fff;text-decoration:underline">Política de Privacidad</a></p>
+
     </div>
   </footer>
 
-      <!-- STICKY MOBILE BAR -->
+  <!-- STICKY MOBILE BAR -->
   <div class="sticky-wa-bar" id="stickyBar">
     <div class="sticky-info">
       <div class="sticky-title">TV Stick · $98.000 COP</div>
@@ -527,28 +525,11 @@
     <a href="https://wa.me/573125057113?text=Hola%20quiero%20comprar%20el%20TV%20Stick"
        target="_blank" rel="noopener noreferrer"
        class="btn-wa-sm" onclick="trackWA()">
-      <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
+      <svg class="wa-icon" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.474 2.027 7.774L0 32l8.426-2.007A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.486-.29-5.003 1.193 1.212-4.878-.317-.5A13.268 13.268 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.398-.2-2.355-1.163-2.72-1.295-.366-.133-.633-.2-.9.2-.266.398-1.031 1.295-1.265 1.562-.233.266-.466.3-.865.1-.398-.2-1.682-.62-3.203-1.977-1.183-1.056-1.982-2.361-2.215-2.76-.233-.398-.025-.613.175-.811.18-.178.398-.466.597-.7.2-.232.266-.398.4-.664.133-.266.066-.5-.033-.7-.1-.2-.9-2.163-1.232-2.962-.325-.777-.655-.672-.9-.684-.233-.012-.5-.015-.766-.015-.266 0-.7.1-1.065.5-.366.398-1.4 1.368-1.4 3.33 0 1.963 1.432 3.863 1.632 4.13.2.266 2.82 4.306 6.832 6.035.955.413 1.7.66 2.282.844.959.305 1.832.262 2.52.159.769-.114 2.355-.963 2.688-1.893.333-.93.333-1.727.233-1.893-.1-.167-.366-.266-.765-.466z"/></svg>
       ¡Comprar!
     </a>
   </div>
 
   <script src="script.js"></script>
-  <script>
-    function trackWA() {
-      if (typeof fbq !== 'undefined') fbq('track', 'Contact');
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      document.querySelectorAll('.landing-video').forEach(function(v) {
-        v.play().catch(function(){});
-        v.addEventListener('pause', function() { v.play(); });
-        v.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-      });
-      document.body.addEventListener('touchstart', function() {
-        document.querySelectorAll('.landing-video').forEach(function(v) { v.play(); });
-      }, { once: true });
-    });
-  </script>
 </body>
 </html>
