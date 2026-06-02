@@ -9,7 +9,6 @@
   <title>TV Stick Colombia — Convierte tu TV en Smart TV HOY</title>
   <link rel="canonical" href="https://0-7sb.pages.dev/" />
 
-
   <!-- Open Graph para Meta Ads -->
   <meta property="og:title" content="TV Stick Colombia — Convierte tu TV en Smart TV HOY" />
   <meta property="og:description" content="Netflix, YouTube, Google y miles de apps. Envío gratis + pago contra entrega." />
@@ -17,9 +16,7 @@
   <meta property="og:locale" content="es_CO" />
   <meta property="og:url" content="https://0-7sb.pages.dev/" />
   <meta property="fb:page_id" content="61589174910562" />
-
-
-  <meta property="og:image" content="https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png" />
+  <meta property="og:image" content="https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
@@ -30,7 +27,7 @@
     "@type": "Product",
     "name": "TV Stick Colombia",
     "description": "Convierte tu TV en Smart TV. Netflix, YouTube, Google y miles de apps. Envío gratis a toda Colombia, pago contra entrega.",
-    "image": "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780258888/file_0000000042ac720e8c00cef23016eed1_i2vzrr.png",
+    "image": "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png",
     "brand": { "@type": "Brand", "name": "TV Stick CO" },
     "offers": {
       "@type": "Offer",
@@ -47,7 +44,7 @@
   }
   </script>
 
-    <!-- Meta Pixel -->
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -57,8 +54,6 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    // Inicializar Pixel + PageView
     fbq('init', '1541165377405964');
     fbq('track', 'PageView');
   </script>
@@ -66,13 +61,55 @@
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1541165377405964&ev=PageView&noscript=1" />
   </noscript>
-  <!-- Fin Meta Pixel -->
 
-
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Optimización: conexión anticipada a Cloudinary (imágenes y videos) -->
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Estilos críticos de video (manteniendo tu diseño exacto) -->
+  <style>
+    .responsive-video-wrap {
+      position: relative;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .landing-video {
+      display: block;
+      width: 100%;
+      height: auto;
+      pointer-events: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+    }
+    @media (max-width: 768px) {
+      .responsive-video-wrap {
+        width: 100vw;
+        max-width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        border-radius: 0;
+      }
+    }
+    @media (min-width: 769px) {
+      .responsive-video-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        border-radius: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -122,17 +159,17 @@
         <span class="trust-badge">🔒 Compra segura</span>
       </div>
 
-            <!-- GALERÍA DE IMÁGENES -->
+      <!-- GALERÍA DE IMÁGENES -->
       <div class="gallery-wrap fade-in-3" id="galleryWrap">
         <div class="gallery-main">
-          <img src="" alt="TV Stick" class="gallery-img active" id="mainImg" />
+          <!-- Nota: asegúrate de que script.js asigne el src, o pon aquí la primera imagen -->
+          <img src="" alt="TV Stick" class="gallery-img active" id="mainImg" fetchpriority="high" loading="eager" decoding="async" />
           <div class="stock-tag">✅ Stock disponible</div>
         </div>
         <div class="gallery-thumbs" id="galleryThumbs">
           <!-- Las miniaturas se generan automáticamente -->
         </div>
       </div>
-           
 
       <!-- PRECIO -->
       <div class="price-block fade-in-4">
@@ -159,150 +196,6 @@
         </div>
       </div>
 
-<!-- VIDEO 1 -->
-<section class="section" style="overflow: visible;">
-  <div class="container text-center">
-    <span class="section-tag">Video demostrativo en vivo</span>
-    <h2 class="section-title">Mira nuestro producto funcionando</h2>
-    <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
-  </div>
-
-  <div class="video-wrap responsive-video-wrap">
-    <video
-      class="landing-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      webkit-playsinline
-      x5-playsinline
-      preload="auto"
-      disablePictureInPicture
-      controlsList="nodownload noplaybackrate nofullscreen"
-      poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
-    >
-      <source 
-        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" 
-        type="video/mp4"
-      >
-      Tu navegador no soporta videos HTML5.
-    </video>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- VIDEO 2 -->
-<section class="section" style="overflow: visible;">
-  <div class="container text-center">
-    <span class="section-tag">Segunda demostración</span>
-    <h2 class="section-title">Mira cómo funciona el click</h2>
-  </div>
-
-  <div class="video-wrap responsive-video-wrap">
-    <video
-      class="landing-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      webkit-playsinline
-      x5-playsinline
-      preload="auto"
-      disablePictureInPicture
-      controlsList="nodownload noplaybackrate nofullscreen"
-      poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg"
-    >
-      <source 
-        src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" 
-        type="video/mp4"
-      >
-      Tu navegador no soporta videos HTML5.
-    </video>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<style>
-  /* ===== RESET BÁSICO PARA VIDEOS ===== */
-  .responsive-video-wrap {
-    position: relative;
-    width: 100%;
-    background: #000;
-    overflow: hidden;
-    line-height: 0; /* Elimina espacio fantasma debajo del video */
-  }
-
-  .landing-video {
-    display: block;
-    width: 100%;
-    height: auto;           /* Mantiene proporción original SIN CORTAR */
-    pointer-events: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-drag: none;
-  }
-
-  /* ===== MÓVIL: FULL WIDTH REAL ===== */
-  @media (max-width: 768px) {
-    .responsive-video-wrap {
-      width: 100vw;
-      max-width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      border-radius: 0;
-    }
-  }
-
-  /* ===== PC: CENTRADO Y CON LÍMITE ===== */
-  @media (min-width: 769px) {
-    .responsive-video-wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 12px;
-    }
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const videos = document.querySelectorAll('.landing-video');
-
-    videos.forEach(function(video) {
-      // 1. Fuerza autoplay con manejo de error (iOS/Safari a veces bloquean el primero)
-      var promise = video.play();
-      if (promise !== undefined) {
-        promise.catch(function(error) {
-          console.log('Autoplay bloqueado temporalmente, se reintentará');
-        });
-      }
-
-      // 2. Si el usuario o el sistema pausan, se reanuda inmediatamente
-      video.addEventListener('pause', function() {
-        video.play();
-      });
-
-      // 3. Bloquea menú derecho (descargar, etc.)
-      video.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-      });
-
-      // 4. Por si el navegador requiere interacción del usuario para iniciar audio/video
-      document.body.addEventListener('touchstart', function() {
-        video.play();
-      }, { once: true });
-    });
-  });
-</script>
-
-</body>
-</html>
-
-
       <!-- FEATURES -->
       <div class="features-card">
         <div class="feature-item">
@@ -327,6 +220,71 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VIDEO 1 -->
+  <section class="section" style="overflow: visible;">
+    <div class="container text-center">
+      <span class="section-tag">Video demostrativo en vivo</span>
+      <h2 class="section-title">Mira nuestro producto funcionando</h2>
+      <p class="section-sub">Observa lo fácil que es convertir cualquier televisor en Smart TV.</p>
+    </div>
+
+    <div class="video-wrap responsive-video-wrap">
+      <video
+        class="landing-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        x5-playsinline
+        preload="auto"
+        disablePictureInPicture
+        controlsList="nodownload noplaybackrate nofullscreen"
+        poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780198485/video_2026-05-30_22-33-51_ot9d2o.jpg"
+      >
+        <source 
+          src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780198485/video_2026-05-30_22-33-51_ot9d2o.mp4" 
+          type="video/mp4"
+        >
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VIDEO 2 -->
+  <section class="section" style="overflow: visible;">
+    <div class="container text-center">
+      <span class="section-tag">Segunda demostración</span>
+      <h2 class="section-title">Mira cómo funciona el click</h2>
+    </div>
+
+    <div class="video-wrap responsive-video-wrap">
+      <video
+        class="landing-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        x5-playsinline
+        preload="auto"
+        disablePictureInPicture
+        controlsList="nodownload noplaybackrate nofullscreen"
+        poster="https://res.cloudinary.com/dsh0z1w5j/video/upload/so_0,q_auto,w_800/v1780271602/click_corto_landing_d1tr3d.jpg"
+      >
+        <source 
+          src="https://res.cloudinary.com/dsh0z1w5j/video/upload/f_mp4,vc_h264,q_auto/v1780271602/click_corto_landing_d1tr3d.mp4" 
+          type="video/mp4"
+        >
+        Tu navegador no soporta videos HTML5.
+      </video>
     </div>
   </section>
 
@@ -503,7 +461,6 @@
         <span class="footer-badges">🚚 Envío GRATIS · 📦 Pago al recibir</span>
       </div>
       <p class="footer-copy">© <span id="year"></span> TV Stick Colombia · Todos los derechos reservados · <a href="/privacy.html" style="color:#fff;text-decoration:underline">Política de Privacidad</a></p>
-
     </div>
   </footer>
 
