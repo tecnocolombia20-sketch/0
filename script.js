@@ -69,20 +69,31 @@ function buildWhatsAppURL() {
 })();
 
 /* ── ViewContent — 1 vez al cargar, Pixel + CAPI, SIN value ── */
-trackEvent('ViewContent', {
-  content_ids:      ['tvstick-co-001'],
-  content_type:     'product',
-  content_name:     'TV Stick Colombia',
-  content_category: 'Electrónica / Smart TV',
-  currency:         'COP',
+// Espera a que toda la página (incluido el script de Meta) esté lista
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    trackEvent('ViewContent', {
+      content_ids:      ['tvstick-co-001'],
+      content_type:     'product',
+      content_name:     'TV Stick Colombia',
+      content_category: 'Electrónica / Smart TV',
+      currency:         'COP',
+    });
+  }, 400); // 400ms de margen para que fbq termine de inicializarse
 });
+
 
 /* ── Botón WhatsApp — INITIATE CHECKOUT (1 vez por sesión) ── */
 var _checkoutFired = false;
 
-function trackWA() {
+function trackWA(event) {
   if (_checkoutFired) return;
   _checkoutFired = true;
+
+  // Detener el click momentáneamente para dar tiempo al Pixel
+  if (event && event.preventDefault) {
+    event.preventDefault();
+  }
 
   trackEvent('InitiateCheckout', {
     content_ids:  ['tvstick-co-001'],
@@ -92,7 +103,13 @@ function trackWA() {
     currency:     'COP',
     num_items:    1,
   });
+
+  // Abrir WhatsApp después de 250ms (tiempo suficiente para el Pixel)
+  setTimeout(function () {
+    window.open(buildWhatsAppURL(), '_blank');
+  }, 250);
 }
+
 
 /* ── AÑO EN FOOTER ── */
 document.getElementById('year').textContent = new Date().getFullYear();
