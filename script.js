@@ -151,11 +151,11 @@ window.addEventListener('scroll', function () {
 
 // AGREGA TODAS LAS FOTOS QUE QUIERAS AQUÍ. SIN LÍMITE.
 const galleryImages = [
-  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780343722/file_00000000993c720e95c0c3db9b181dbf_syjefz.png", alt: "Imagen 1" },
-  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780765002/IMG_20260518_172557_ktrojo_gn59lf.png", alt: "Imagen 2" },
-  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780765002/IMG_20260518_165727_h9ku0l_cl4vu1.png", alt: "Imagen 3" },
-  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780765002/IMG_20260518_172846_s9chpm_rsayif.png", alt: "Imagen 4" },
-  { src: "https://res.cloudinary.com/dsh0z1w5j/image/upload/v1780765002/IMG_20260518_172331_qc7oyn_wjuxb5.png", alt: "Imagen 5" }
+  { src: "https://landing-video-y-fotos.pages.dev/file_00000000993c720e95c0c3db9b181dbf_syjefz.webp", alt: "Imagen 1" },
+  { src: "https://landing-video-y-fotos.pages.dev/IMG_20260518_172557_ktrojo.webp", alt: "Imagen 2" },
+  { src: "https://landing-video-y-fotos.pages.dev/IMG_20260518_165727_h9ku0l.webp", alt: "Imagen 3" },
+  { src: "https://landing-video-y-fotos.pages.dev/IMG_20260518_172846_s9chpm.webp", alt: "Imagen 4" },
+  { src: "https://landing-video-y-fotos.pages.dev/IMG_20260518_172331_qc7oyn.webp", alt: "Imagen 5" }
   // Para agregar más, solo copia una línea y pega la URL nueva abajo
 ];
 
