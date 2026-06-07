@@ -151,11 +151,11 @@ window.addEventListener('scroll', function () {
 
 // AGREGA TODAS LAS FOTOS QUE QUIERAS AQUÍ. SIN LÍMITE.
 const galleryImages = [
-  { src: "https://0-7sb.pages.dev/file_00000000993c720e95c0c3db9b181dbf_syjefz.webp", alt: "Imagen 1" },
-  { src: "https://0-7sb.pages.dev/IMG_20260518_172557_ktrojo.webp", alt: "Imagen 2" },
-  { src: "https://0-7sb.pages.dev/IMG_20260518_165727_h9ku0l.webp", alt: "Imagen 3" },
-  { src: "https://0-7sb.pages.dev/IMG_20260518_172846_s9chpm.webp", alt: "Imagen 4" },
-  { src: "https://0-7sb.pages.dev/IMG_20260518_172331_qc7oyn.webp", alt: "Imagen 5" }
+  { src: "/LANDING-video-y-fotos--main/file_00000000993c720e95c0c3db9b181dbf_syjefz.webp", alt: "Imagen 1" },
+  { src: "/LANDING-video-y-fotos--main/IMG_20260518_172557_ktrojo.webp", alt: "Imagen 2" },
+  { src: "/LANDING-video-y-fotos--main/IMG_20260518_165727_h9ku0l.webp", alt: "Imagen 3" },
+  { src: "/LANDING-video-y-fotos--main/IMG_20260518_172846_s9chpm.webp", alt: "Imagen 4" },
+  { src: "/LANDING-video-y-fotos--main/IMG_20260518_172331_qc7oyn.webp", alt: "Imagen 5" }
   // Para agregar más, solo copia una línea y pega la URL nueva abajo
 ];
 
