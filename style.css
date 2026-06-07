@@ -639,7 +639,41 @@ nav.scrolled {
   }
 }
 
-
-
-
-
+/* ── VIDEO 2: Click para reproducir ── */
+.video-click-play {
+  position: relative;
+  cursor: pointer;
+}
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  transition: opacity 0.2s;
+  border-radius: inherit;
+}
+.video-play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.95);
+  color: #111827;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.video-play-btn:hover {
+  transform: scale(1.08);
+}
+/* Ocultar overlay cuando el video está reproduciéndose */
+.video-click-play.playing .video-play-overlay {
+  display: none;
+}
