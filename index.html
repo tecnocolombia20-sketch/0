@@ -269,34 +269,29 @@
   
 <div class="divider"></div>
 
-  <!-- VIDEO 2 -->
+    <!-- VIDEO 2 -->
   <section class="section" style="overflow: visible;">
     <div class="container text-center">
       <span class="section-tag">Segunda demostración</span>
       <h2 class="section-title"></h2>
     </div>
 
-    <div class="video-wrap responsive-video-wrap">
-            <video
+    <div class="video-wrap responsive-video-wrap video-click-play" data-video-src="https://landing-video-y-fotos.pages.dev/LANDING%20480P%20rapido.mp4">
+      <video
         class="landing-video"
-        autoplay
         muted
         loop
         playsinline
         webkit-playsinline
         x5-playsinline
-        preload="metadata"
+        preload="none"
         disablePictureInPicture
         controlsList="nodownload noplaybackrate nofullscreen"
-        poster="https://landing-video-y-fotos.pages.dev/IMG_20260518_172846_s9chpm.webp"
-      >
-
-        <source 
-          src="https://landing-video-y-fotos.pages.dev/LANDING%20480P%20rapido.mp4" 
-          type="video/mp4"
-        >
-        Tu navegador no soporta videos HTML5.
+        poster="https://landing-video-y-fotos.pages.dev/IMG_20260518_172846_s9chpm.webp">
       </video>
+      <div class="video-play-overlay">
+        <button class="video-play-btn" aria-label="Reproducir video">▶</button>
+      </div>
     </div>
   </section>
 
