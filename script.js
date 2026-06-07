@@ -193,39 +193,33 @@ function selectImg(index) {
 // Inicializar galería al cargar la página
 document.addEventListener('DOMContentLoaded', renderGallery);
 
-/* ── VIDEOS: Click para reproducir o pausar ── */
+/* ── VIDEO 2: Click para reproducir o pausar ── */
 (function () {
-  var containers = document.querySelectorAll('.video-click-play');
+  var container = document.querySelector('.video-click-play');
+  if (!container) return;
 
-  containers.forEach(function (container) {
-    var video = container.querySelector('video');
-    var btn = container.querySelector('.video-play-btn');
-    if (!video) return;
+  var video = container.querySelector('video');
 
-    function togglePlay() {
-      if (!video.querySelector('source')) {
-        var src = container.getAttribute('data-video-src');
-        if (src) {
-          var source = document.createElement('source');
-          source.src = src;
-          source.type = 'video/mp4';
-          video.appendChild(source);
-          video.load();
-        }
-      }
-
-      if (video.paused) {
-        video.play();
-        container.classList.add('playing');
-        if (btn) btn.innerHTML = '❚❚';
-      } else {
-        video.pause();
-        container.classList.remove('playing');
-        if (btn) btn.innerHTML = '▶';
-      }
+  function togglePlay() {
+    if (!video.querySelector('source')) {
+      var src = container.getAttribute('data-video-src');
+      var source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      video.load();
     }
 
-    container.addEventListener('click', togglePlay);
-  });
+    if (video.paused) {
+      video.play();
+      container.classList.add('playing');
+    } else {
+      video.pause();
+      container.classList.remove('playing');
+    }
+  }
+
+  container.addEventListener('click', togglePlay);
 })();
+
 
