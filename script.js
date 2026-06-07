@@ -192,3 +192,28 @@ function selectImg(index) {
 
 // Inicializar galería al cargar la página
 document.addEventListener('DOMContentLoaded', renderGallery);
+
+/* ── VIDEO 2: Click para cargar y reproducir ── */
+(function () {
+  var container = document.querySelector('.video-click-play');
+  if (!container) return;
+
+  var video = container.querySelector('video');
+  var overlay = container.querySelector('.video-play-overlay');
+
+  function loadAndPlay() {
+    if (!video.querySelector('source')) {
+      var src = container.getAttribute('data-video-src');
+      var source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      video.load();
+    }
+    video.play();
+    container.classList.add('playing');
+  }
+
+  container.addEventListener('click', loadAndPlay);
+})();
+
