@@ -717,16 +717,7 @@ nav.scrolled {
 .video-play-btn:hover {
   transform: scale(1.08);
 }
-
-
-/* Overlay invisible al reproducir, pero sigue capturando clics */
+/* Ocultar overlay cuando el video está reproduciéndose */
 .video-click-play.playing .video-play-overlay {
-  opacity: 0;
-  transition: opacity 0.3s;
+  display: none;
 }
-/* Al pasar el mouse o tocar, muestra el botón de pausa */
-.video-click-play.playing:hover .video-play-overlay,
-.video-click-play.playing:active .video-play-overlay {
-  opacity: 1;
-}
-
